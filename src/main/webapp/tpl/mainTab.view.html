@@ -1,0 +1,10 @@
+	<div class="wrapper-content-tabs" ng-controller="MainTabController as vm">
+	<scrollable-tabset tooltip-left-placement="top" api="vm.scrlTabsApi" scroll-by="250">
+	    <uib-tabset class="head-action wrapper-tabs">
+	      <uib-tab ng-repeat="tab in tabs" active="tab.active">
+	        <uib-tab-heading><span title="{{tab.title}}" translate>{{tab.title}}</span> <a ng-click="vm.removeTab($event, $index)" ng-show="tab.closable" href=''><button class="badge close" type="button" title="Remove this page">x</button></a></uib-tab-heading>
+	        <div ng-include src='tab.templateUrl' syna-pause-watchers="!tab.active"></div>
+	      </uib-tab>
+	    </uib-tabset>
+  </scrollable-tabset>
+</div>

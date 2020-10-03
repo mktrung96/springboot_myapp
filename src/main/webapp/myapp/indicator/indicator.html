@@ -1,0 +1,71 @@
+<div data-ng-controller="indicatorController as vm" id="iot_searchForm_indicatorId">
+    <h2 style="width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #000;
+        margin: 10px 0 20px;">Quản Lý Chỉ Tiêu</h2>
+    <div class="" role="form">
+        <div class="clearfix margin-top-30">
+            <div class="clearfix">
+                <div class="row ">
+                    <!--  -->
+                    <div class="form-group col-md-6">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="keySearch_searchForm" class="control-label">Nội dung tìm kiếm:</label>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="input-icon right ">
+                                    <input
+                                            class="form-control width100 " type="text"
+                                            id="keySearch_searchForm" name="date_searchForm"
+                                            ng-model="vm.searchForm.keySearch" placeholder="Mã CT/Tên CT"
+                                    />
+                                </div>
+                            </div>
+                            <div class=" One_icon">
+                                <i class="fa fa-times" aria-hidden="true" ng-click="vm.clear('keySearch')"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  -->
+                    <!--  -->
+                    <div class="form-group col-md-6">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="isActive" class="control-label">Trạng thái:</label>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="input-icon right ">
+                                    <select class="form-control custom-select width100" ng-model="vm.searchForm.isActive"
+                                            id="isActive" required>
+                                        <option value="">--Lựa chọn trạng thái--</option>
+                                        <option selected ng-model="xss" ng-selected="u.selected"
+                                                ng-repeat="u in vm.activeArray"
+                                                value="{{u.id}}">
+                                            {{u.nameActive}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--Navbar-->
+    <nav class=" navbar-expand-lg navbar-dark indigo mb-4">
+        <form class="clearfix text-center">
+            <button class="btn btn-outline-dark btn-md my-0 ml-sm-2" type="submit" ng-click="vm.doSearch()">Search
+            </button>
+        </form>
+    </nav>
+    <!--end Navbar-->
+    <div id="gridList" kendo-grid="vm.indicatorGrid" k-editable="false" k-options="vm.indicatorGridOptions"></div>
+    <br/>
+    <br/>
+
+</div>
+

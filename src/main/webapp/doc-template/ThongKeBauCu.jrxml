@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ThongKeBauCu_2" pageWidth="2042" pageHeight="842" orientation="Landscape" columnWidth="2002" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="045c91f4-0854-4268-96f6-d23c0bab0a4f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<queryString>
+		<![CDATA[Select a.shm_shareholdercheckin_id ID,c.Code,c.Name,REGISTER_NO,c.qty_hold,b.qty_vote,
+to_char(TYPE || ' - ' || FULLNAME) FULLNAME,nvl(QTYVOTEAUTO,0) +  nvl(QTYVOTEMANUAL,0) TOTAL_QTYVOTE
+from shm_vote_candidate a
+Inner join shm_shareholdercheckin b on a.shm_shareholdercheckin_id = b.shm_shareholdercheckin_id
+Inner join shm_share_holder c on b.shm_shareholder_id = c.shm_share_holder_id
+inner join shm_candidate d on d.shm_candidate_ID = a.shm_candidate_ID
+Where a.isinvalid = 'N'
+Union all
+Select distinct a.shm_shareholdercheckin_id ID,c.Code,c.Name,REGISTER_NO,c.qty_hold,b.qty_vote,
+to_char('KHÔNG HỢP LỆ') FULLNAME,-1 TOTAL_QTYVOTE
+from shm_vote_candidate a
+Inner join shm_shareholdercheckin b on a.shm_shareholdercheckin_id = b.shm_shareholdercheckin_id
+Inner join shm_share_holder c on b.shm_shareholder_id = c.shm_share_holder_id
+inner join shm_candidate d on d.shm_candidate_ID = a.shm_candidate_ID
+Where a.isinvalid = 'Y'
+order by Code]]>
+	</queryString>
+	<field name="ID" class="java.math.BigDecimal"/>
+	<field name="CODE" class="java.lang.String"/>
+	<field name="NAME" class="java.lang.String"/>
+	<field name="REGISTER_NO" class="java.lang.String"/>
+	<field name="QTY_HOLD" class="java.math.BigDecimal"/>
+	<field name="QTY_VOTE" class="java.math.BigDecimal"/>
+	<field name="FULLNAME" class="java.lang.String"/>
+	<field name="TOTAL_QTYVOTE" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement uuid="a69c536e-3f2a-4b28-9c1a-7e1f9a778d2e" x="0" y="0" width="2002" height="30"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" isBold="true" pdfFontName="TIMESDB.TTF" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["THỐNG KÊ BẦU CỬ"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<summary>
+		<band height="162" splitType="Stretch">
+			<crosstab>
+				<reportElement uuid="5ebb84c0-d694-4dca-892b-6c623d967122" x="0" y="0" width="2002" height="162"/>
+				<crosstabHeaderCell>
+					<cellContents backcolor="#F0F8FF" mode="Opaque">
+						<textField>
+							<reportElement uuid="f4034e45-1cde-488b-af31-244f950140b8" style="Crosstab Data Text" x="0" y="0" width="70" height="30"/>
+							<box>
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textElement verticalAlignment="Middle">
+								<font fontName="Times New Roman" isBold="true" pdfFontName="TIMESDB.TTF" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA["Mã cổ đông"]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement uuid="d0aea5fb-ebc4-43c5-be03-513491171cfc" style="Crosstab Data Text" x="70" y="0" width="54" height="30"/>
+							<box>
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textElement verticalAlignment="Middle">
+								<font fontName="Times New Roman" isBold="true" pdfFontName="TIMESDB.TTF" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA["ID"]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement uuid="9d00ddfb-ec59-48b5-8cd4-a7b8870e0a60" style="Crosstab Data Text" x="124" y="0" width="162" height="30"/>
+							<box>
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textElement verticalAlignment="Middle">
+								<font fontName="Times New Roman" isBold="true" pdfFontName="TIMESDB.TTF" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA["Tên cổ đông"]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement uuid="989424b2-d0f5-48f8-83cd-1c6df62ed679" style="Crosstab Data Text" x="286" y="0" width="100" height="30"/>
+							<box>
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textElement verticalAlignment="Middle">
+								<font fontName="Times New Roman" isBold="true" pdfFontName="TIMESDB.TTF" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA["Số cổ phiếu"]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement uuid="545612b5-2583-434f-9683-2caabb3bb2ff" style="Crosstab Data Text" x="386" y="0" width="100" height="30"/>
+							<box>
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textElement verticalAlignment="Middle">
+								<font fontName="Times New Roman" isBold="true" pdfFontName="TIMESDB.TTF" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA["Số biểu quyết"]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabHeaderCell>
+				<rowGroup name="CODE" width="70" totalPosition="End">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{CODE}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents backcolor="#F0F8FF" mode="Transparent">
+							<textField>
+								<reportElement uuid="8c739efb-735c-4267-9f6e-c61552aa22b4" style="Crosstab Data Text" stretchType="RelativeToBandHeight" x="0" y="0" width="70" height="25"/>
+								<box leftPadding="3" rightPadding="2">
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font fontName="Times New Roman" pdfFontName="TIMES.TTF" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{CODE}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents backcolor="#005FB3" mode="Opaque">
+							<staticText>
+								<reportElement uuid="67e67055-1e08-42bf-bdaf-68ed799981fa" stretchType="RelativeToBandHeight" x="0" y="0" width="124" height="25" forecolor="#FFFFFF"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Times New Roman" pdfFontName="TIMES.TTF" isPdfEmbedded="true"/>
+								</textElement>
+								<text><![CDATA[TOTAL]]></text>
+							</staticText>
+						</cellContents>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<rowGroup name="ID" width="54" totalPosition="End">
+					<bucket class="java.math.BigDecimal">
+						<bucketExpression><![CDATA[$F{ID}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents backcolor="#F0F8FF" mode="Transparent">
+							<textField>
+								<reportElement uuid="01fab6cd-9435-4ebe-bd9d-2bea07837e63" style="Crosstab Data Text" stretchType="RelativeToBandHeight" x="0" y="0" width="54" height="25"/>
+								<box leftPadding="3" rightPadding="2">
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font fontName="Times New Roman" pdfFontName="TIMES.TTF" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{ID}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents backcolor="#BFE1FF" mode="Opaque"/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<rowGroup name="Name" width="162">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{NAME}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents>
+							<textField>
+								<reportElement uuid="bd90709d-aa41-4f14-9ba8-c112e8820b82" style="Crosstab Data Text" stretchType="RelativeToBandHeight" x="0" y="0" width="162" height="25"/>
+								<box leftPadding="3" rightPadding="2">
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font fontName="Times New Roman" pdfFontName="TIMES.TTF" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{Name}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<rowGroup name="qtyhold" width="100">
+					<bucket class="java.math.BigDecimal">
+						<bucketExpression><![CDATA[$F{QTY_HOLD}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents>
+							<textField isStretchWithOverflow="true" pattern="#,##0" isBlankWhenNull="true">
+								<reportElement uuid="cef2266a-08c1-47e1-adc4-5fcac8eb3597" style="Crosstab Data Text" stretchType="RelativeToBandHeight" x="0" y="0" width="100" height="25"/>
+								<box leftPadding="2" rightPadding="3">
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="Times New Roman" pdfFontName="TIMES.TTF" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{qtyhold}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<rowGroup name="qtyvote" width="100">
+					<bucket class="java.math.BigDecimal">
+						<bucketExpression><![CDATA[$F{QTY_VOTE}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents>
+							<textField isStretchWithOverflow="true" pattern="#,##0" isBlankWhenNull="true">
+								<reportElement uuid="7fac6cc8-3af2-447e-b12a-a0f7da55c307" style="Crosstab Data Text" stretchType="RelativeToBandHeight" x="0" y="0" width="100" height="25"/>
+								<box leftPadding="2" rightPadding="3">
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="Times New Roman" pdfFontName="TIMES.TTF" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{qtyvote}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<columnGroup name="FULLNAME" height="30" totalPosition="End">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{FULLNAME}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents backcolor="#F0F8FF" mode="Opaque">
+							<textField>
+								<reportElement uuid="365b830c-34f7-4642-be54-005a2c549f4f" style="Crosstab Data Text" x="0" y="0" width="146" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Times New Roman" isBold="true" pdfFontName="TIMESDB.TTF" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{FULLNAME}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents backcolor="#BFE1FF" mode="Opaque">
+							<staticText>
+								<reportElement uuid="1c649a66-9679-41eb-a2d2-e1e5f20f0577" x="0" y="0" width="67" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Times New Roman" isBold="true" pdfFontName="TIMESDB.TTF" isPdfEmbedded="true"/>
+								</textElement>
+								<text><![CDATA[TOTAL]]></text>
+							</staticText>
+						</cellContents>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<measure name="TOTAL_QTYVOTEMeasure" class="java.math.BigDecimal" calculation="Sum">
+					<measureExpression><![CDATA[$F{TOTAL_QTYVOTE}]]></measureExpression>
+				</measure>
+				<crosstabCell width="146" height="25">
+					<cellContents>
+						<textField isStretchWithOverflow="true" pattern="#,##0" isBlankWhenNull="true">
+							<reportElement uuid="3de4c2e2-e6dc-470b-b0ae-c32c0dc90d60" style="Crosstab Data Text" stretchType="RelativeToBandHeight" x="0" y="0" width="146" height="25"/>
+							<box leftPadding="2" rightPadding="3">
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textElement textAlignment="Right" verticalAlignment="Middle">
+								<font fontName="Times New Roman" pdfFontName="TIMES.TTF" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{TOTAL_QTYVOTEMeasure}.doubleValue()==0? null:$V{TOTAL_QTYVOTEMeasure}.doubleValue()==-1? "Y" : $V{TOTAL_QTYVOTEMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="146" height="25" rowTotalGroup="CODE">
+					<cellContents backcolor="#005FB3" mode="Opaque">
+						<textField isStretchWithOverflow="true" pattern="#,##0" isBlankWhenNull="true">
+							<reportElement uuid="af983d82-f163-459d-ac1a-d7aacb806afb" style="Crosstab Data Text" stretchType="RelativeToBandHeight" x="0" y="0" width="146" height="25" forecolor="#FFFFFF"/>
+							<box leftPadding="2" rightPadding="3">
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textElement textAlignment="Right" verticalAlignment="Middle">
+								<font fontName="Times New Roman" pdfFontName="TIMES.TTF" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{TOTAL_QTYVOTEMeasure}.doubleValue()==-1? 0:$V{TOTAL_QTYVOTEMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="67" columnTotalGroup="FULLNAME">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<textField isStretchWithOverflow="true" pattern="#,##0" isBlankWhenNull="true">
+							<reportElement uuid="e6471c72-d3bd-4ec9-9796-6d1c2f4ea6a2" style="Crosstab Data Text" stretchType="RelativeToBandHeight" x="0" y="0" width="67" height="25"/>
+							<box leftPadding="2" rightPadding="3">
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textElement textAlignment="Right" verticalAlignment="Middle">
+								<font fontName="Times New Roman" pdfFontName="TIMES.TTF" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{TOTAL_QTYVOTEMeasure}.doubleValue()==-1? 0:$V{TOTAL_QTYVOTEMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="67" rowTotalGroup="CODE" columnTotalGroup="FULLNAME">
+					<cellContents backcolor="#005FB3" mode="Opaque">
+						<textField isStretchWithOverflow="true" pattern="#,##0" isBlankWhenNull="true">
+							<reportElement uuid="1498b417-3c61-4ecf-bda7-02f7bac76db5" style="Crosstab Data Text" stretchType="RelativeToBandHeight" x="0" y="0" width="67" height="25" forecolor="#FFFFFF"/>
+							<box leftPadding="2" rightPadding="3">
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textElement textAlignment="Right" verticalAlignment="Middle">
+								<font fontName="Times New Roman" pdfFontName="TIMES.TTF" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="146" height="0" rowTotalGroup="ID">
+					<cellContents backcolor="#BFE1FF" mode="Opaque"/>
+				</crosstabCell>
+				<crosstabCell width="67" height="0" rowTotalGroup="ID" columnTotalGroup="FULLNAME">
+					<cellContents backcolor="#BFE1FF" mode="Opaque"/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="Name">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="Name" columnTotalGroup="FULLNAME">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="qtyhold">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="qtyhold" columnTotalGroup="FULLNAME">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="qtyvote">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="qtyvote" columnTotalGroup="FULLNAME">
+					<cellContents/>
+				</crosstabCell>
+			</crosstab>
+		</band>
+	</summary>
+</jasperReport>

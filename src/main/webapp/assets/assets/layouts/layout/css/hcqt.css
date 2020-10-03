@@ -1,0 +1,490 @@
+.width100 {
+    width: 100% !important;
+}
+.margin-bottom-asset {
+    margin-bottom: 5px;
+}
+.action-button {
+    background-repeat: no-repeat;
+    height: 18px;
+    width: 18px;
+    text-indent: 5px;
+    background-position: 2px 2px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.action-button.XemHshs{
+	background-image: url('../img/xemHSHC.png');
+	height: 27px;
+    width: 25px;
+    list-style-type: none;
+}
+.padding-heder-qlhc{
+    padding: 4px 5px !important;
+}
+
+.action-button.phanquyen{
+	background-image: url('../img/phanquyen.png');
+	background-position: 0px 0px;
+	height: 27px;
+    width: 25px;
+    list-style-type: none;
+}
+.action-button.GNVGS{
+	background-image: url('../img/GNVGS.png');
+	background-position: 0px 0px;
+	height: 27px;
+    width: 25px;
+    list-style-type: none;
+}
+.action-button.PATCTC{
+	background-image: url('../img/PATCTC.png');
+	background-position: 0;
+	height: 27px;
+    width: 25px;
+    list-style-type: none;
+}
+.action-button.BGMBTC{
+	background-image: url('../img/BGMBTC.png');
+    background-repeat: no-repeat;
+	width: 27px;
+    height: 27px;
+  	list-style-type: none;
+}
+.action-button.BGVTA{
+	background-image: url('../img/BGVTA.png');
+    background-repeat: no-repeat;
+    background-position: 0px 4px;
+    height: 27px;
+    width: 25px;
+    list-style-type: none;
+}
+.action-button.NTVTB{
+	background-image: url('../img/NTVTB.png');
+    background-repeat: no-repeat;
+    background-position: 3px 2px;
+    height: 27px;
+    width: 25px;
+    list-style-type: none;
+}
+.action-button.NKCT{
+	background-image: url('../img/NKCT.png');
+    background-repeat: no-repeat;
+    background-position: 1px 2px;
+    height: 27px;
+     width: 25px;
+    list-style-type: none;
+}
+.action-button.QLXL{
+	background-image: url('../img/QLXL.png');
+    background-repeat: no-repeat;
+    background-position: 6px -1px;
+    height: 27px;
+     width: 25px;
+    list-style-type: none;
+}
+.action-button.BVHC{
+	background-image: url('../img/BVHC.png');
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    height: 27px;
+     width: 25px;
+    list-style-type: none;
+}
+.action-button.NTCVXD{
+	background-image: url('../img/NTCVXD.png');
+    background-repeat: no-repeat;
+    background-position: 3px 2px;
+    height: 27px;
+     width: 25px;
+    list-style-type: none;
+}
+.action-button.BBHT{
+	background-image: url('../img/BBHT&PSKL.png');
+    background-repeat: no-repeat;
+    height: 27px;
+    width: 25px;
+    list-style-type: none;
+}
+.action-button.BBHTCT{
+	background-image: url('../img/BBHT&PSKLCT.png');
+    background-repeat: no-repeat;
+    background-position: 0px 2px;
+    height: 27px;
+    width: 25px;
+    list-style-type: none;
+}
+.action-button.NTCVVC{
+	background-image: url('../img/NTCVVC.png');
+    background-repeat: no-repeat;
+    height: 27px;
+    width: 25px;
+    list-style-type: none;
+}
+.action-button.KQDL{
+	background-image: url('../img/KQDL.png');
+    background-repeat: no-repeat;
+    height: 27px;
+    width: 25px;
+    list-style-type: none;
+}
+.action-button.THVTAT{
+	background-image: url('../img/THVTAT.png');
+    background-repeat: no-repeat;
+    height: 27px;
+    width: 25px;
+    list-style-type: none;
+}
+.action-button.NTHTBPCT{
+	background-image: url('../img/NTHTBPCT.png');
+    background-repeat: no-repeat;
+    height: 27px;
+    width: 25px;
+    list-style-type: none;
+}
+.action-button.BD{
+	background-image: url('../img/icon_proposal.png');
+    background-repeat: no-repeat;
+    height: 27px;
+    width: 25px;
+    list-style-type: none;
+}
+.action-button.AB{
+	background-image: url('../img/quyettoana-b.png');
+    background-repeat: no-repeat;
+    height: 27px;
+    width: 25px;
+    list-style-type: none;
+}
+
+.action-button.AC{
+	background-image: url('../img/evaluation.png');
+    background-repeat: no-repeat;
+    height: 27px;
+    width: 25px;
+    list-style-type: none;
+}
+
+.PYCNTCT{
+	background-image: url('../img/PYCNTCT.png');
+    background-repeat: no-repeat;
+    background-position: 2px 0px;
+    height: 27px;
+    width: 25px;
+    list-style-type: none;
+}
+.action-button.TiltAzimuth{
+	background-image: url('../img/TiltAzimuth.png');
+    background-repeat: no-repeat;
+    background-position: 1px 2px;
+    height: 27px;
+    width: 25px;
+    list-style-type: none;
+}
+.action-button.BBKLHTCT{
+	background-image: url('../img/BBKLHTCT.png');
+    background-repeat: no-repeat;
+    background-position: 1px 2px;
+    height: 27px;
+    width: 25px;
+    list-style-type: none;
+}
+.action-button.BBBGHT{
+	background-image: url('../img/BBBGHT.png');
+    background-repeat: no-repeat;
+    background-position: 3px 1px;
+    height: 27px;
+    width: 25px;
+    list-style-type: none;
+}
+.action-button.ImportCVHD{
+	background-image: url('../img/ImportCVHD.png');
+    background-repeat: no-repeat;
+    height: 27px;
+    width: 25px;
+    list-style-type: none;
+}
+.action-button.ImportCTCVHD{
+	background-image: url('../img/ImportCTCVHD.png');
+    background-repeat: no-repeat;
+    height: 27px;
+    width: 25px;
+    list-style-type: none;
+}
+.action-button.NTDVSD{
+	background-image: url('../img/NTDVSD.png');
+    background-repeat: no-repeat;
+    height: 27px;
+    width: 25px;
+    list-style-type: none;
+}
+
+.action-button.XNTCDD{
+	background-image: url('../img/XNTCDD.png');
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    height: 27px;
+    width: 25px;
+    list-style-type: none;
+}
+.action-button.BGHT{
+	background-image: url('../img/BGHT.png');
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    height: 27px;
+    width: 25px;
+    list-style-type: none;
+}
+#loading {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: none;
+    opacity: 0.7;
+    background-color: #333333;
+    z-index: 99;
+    text-align: center;
+}
+action-button.tach {
+	background-image: url('../img/input/chuc-nang_21.png');
+}
+
+.action-button.copy {
+	background-image: url('../img/input/copy_34.png');
+}
+
+.action-button.export {
+	background-image: url('../img/input/exp.png');
+}
+
+.action-button.pdf {
+	background-image: url('../img/input/pdf.png');
+	background-size: 83% 100%;
+    background-position: 2px 0px;
+}
+
+.action-button.doc {
+	background-image: url('../img/input/doc.png');
+	background-size: 83% 100%;
+    background-position: 2px 0px;
+}
+
+.action-button.excel {
+	background-image: url('../img/input/excel.png');
+	background-size: 83% 100%;
+    background-position: 2px 0px;
+}
+
+.action-button.approve {
+	background-image: url('../img/input/approve.png');
+	background-size: 83% 100%;
+    background-position: 2px 0px;
+}
+
+.action-button.approval {
+	background-image: url('../img/input/approval.png');
+	background-size: 83% 100%;
+    background-position: 2px 0px;
+}
+
+.action-button.signature {
+	background-image: url('../img/input/signature.png');
+	background-size: 90% 100%;
+    background-position: 2px 0px;
+}
+
+.action-button.download {
+	background-image: url('../img/input/download.png');
+	background-size: 100% 100%;
+    background-position: 0px 0px
+}
+
+.action-button.hachtoan {
+	background-image: url('../img/input/hach-toan_15.png');
+}
+
+.action-button.import {
+	background-image: url('../img/input/imp.png');
+}
+
+.action-button.import2 {
+	background-image: url('../img/input/Imports.png');
+}
+
+.action-button.cancelAproval {
+	background-image: url('../img/input/cancelAproval.png');
+	background-size: 83% 100%;
+    background-position: 2px 0px;
+}
+.action-button.attach {
+	background-image: url('../img/input/attach.png');
+}
+
+.action-button.refresh {
+	background-image: url('../img/input/refresh_44.png');
+}
+
+.action-button.viewbang {
+	background-image: url('../img/input/view.png');
+}
+
+.action-button.print {
+	background-image: url('../img/input/print_19.png');
+}
+
+.action-button.viewPen {
+	background-image: url('../img/input/av_05.png');
+	padding: 0 12px;
+}
+.action-button.viewconstruction {
+	background-image: url('../img/input/construction.png');
+	padding: 0 12px;
+}
+
+.action-button.Freeze {
+	background-image: url('../img/input/po_03.png');
+	padding: 0 11px;
+}
+
+/* Form Control file */
+.input-group .file {
+   
+    margin-left: 0px;
+    width: 100% !important; 
+}
+.input-group-file{
+	border: none;
+	border-bottom:none !important;;
+}
+.head-action>.nav-tabs>li>a .badge.close {
+	width: 15px;
+    height: 15px;
+	top:3px;
+	position: relative;
+}
+.wrapper-content-tabs .close {
+	margin-left: 12px;
+	margin-top: 0px;
+	margin-bottom: -2px;
+	margin-right: -10px;
+}
+.head-action>.nav-tabs>li .badge {
+    -webkit-border-radius: 0px !important;
+}
+uib-tab-heading {
+	display: inline-flex;
+}
+
+
+
+
+
+.head-action>.nav-tabs>li>a .badge.close {
+	
+	width: 15px;
+    height: 15px;
+
+}
+
+
+uib-tab-heading {
+	display: inline-flex;
+}
+
+span {
+    border-radius: 2px !important;
+}
+
+
+
+/* popup css */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+}
+
+#tableheader{
+	table-layout: fixed; 
+  width: 99%;
+  border-collapse: collapse;
+  margin-left:10px;
+  
+}
+#tableheader th{
+  text-align: center;
+}
+
+#recodeMapDatatable {
+  table-layout: fixed; 
+  width: 99%;
+  border-collapse: collapse;
+  margin-left:10px;
+  margin-right:10px;
+  word-wrap:break-word;
+}
+#recodeMapDatatable td {
+  vertical-align: middle;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+#recodeMapDatatable th {
+  vertical-align: top;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+#recodeMapDatatable tr:odd {
+    background: red;
+}
+
+
+#tableheader th {
+  vertical-align: top;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+
+#recodeMapDatatable tr {
+  vertical-align: center;
+}
+
+.outer {
+  position: relative;
+}
+.inner {
+  overflow-y: scroll;
+  height: 400px; 
+}
+
+.innerheader {
+  overflow-y: scroll;
+}
+
+
+
+#recodeMapDatatable thead th {
+	text-align: center;
+}
+
+

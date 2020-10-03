@@ -1,0 +1,142 @@
+<div data-ng-controller="dataIndicatorController as vm" id="searchForm_dataIndicator_id">
+    <h2 style="width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #000;
+        margin: 10px 0 20px;">Quản Lý Data Chỉ Tiêu</h2>
+    <div class="" role="form">
+        <div class="clearfix margin-top-30">
+            <div class="clearfix">
+                <div class="row ">
+                    <!--  -->
+                    <!--                    <div class="form-group col-md-6">-->
+                    <!--                        <div class="row">-->
+                    <!--                            <div class="col-md-4">-->
+                    <!--                                <label for="date_searchForm" class="control-label">Ngày:</label>-->
+                    <!--                            </div>-->
+                    <!--                            <div class="col-md-8">-->
+                    <!--                                <div class="input-icon right ">-->
+                    <!--                                    <input ng-blur="focusOut()" kendo-date-picker date-time name="date_searchForm"-->
+                    <!--                                           id="date_searchForm"-->
+                    <!--                                           ng-model="vm.searchForm.date" class="form-control width100 height100"-->
+                    <!--                                           k-format="'dd/MM/yyyy'"-->
+                    <!--                                    />-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+
+                    <div class="form-group col-md-6">
+                        <div class="row">
+<!--                            <div class="col">-->
+                                <label class="col-md-2 control-label" translate>Từ ngày</label>
+                                <div class="col-md-4 position-relative">
+                                    <input kendo-date-picker date-time k-format="'dd/MM/yyyy'" name="dateFrom"
+                                           id="dateFrom"
+                                           ng-model="vm.searchForm.dateFrom" style="width: 100%;" date-time/>
+<!--                                    <span data-for='impReqManaCreateFromDate' id="errImpReq1"-->
+<!--                                          class='k-invalid-msg'></span>-->
+<!--                                    <span style="color: red" id="errImpReqMess1">{{vm.errMessage1}}</span>-->
+                                </div>
+<!--                            </div>-->
+<!--                            <div class="col">-->
+                                <label class="col-md-1 control-label" translate>đến</label>
+                                <div class="col-md-4 position-relative">
+                                    <input kendo-date-picker date-time k-format="'dd/MM/yyyy'" name="dateTo" id="dateTo"
+                                           ng-model="vm.searchForm.dateTo" style="width: 100%;" date-time
+                                           ng-change="vm.checkErr()"/>
+<!--                                    <span data-for='impReqManaCreateToDate' id="errImpReq" class='k-invalid-msg'></span>-->
+<!--                                    <span style="color: red" id="errImpReqMess">{{vm.errMessage}}</span>-->
+                                </div>
+<!--                            <div class=" col-md-1">-->
+                                <div class=" One_icon">
+                                    <i class="fa fa-times" aria-hidden="true" ng-click="vm.clear('dateList')"></i>
+                                </div>
+<!--                            </div>-->
+                        </div>
+                    </div>
+                    <!--  -->
+                    <!--  -->
+                    <div class="form-group col-md-6">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label for="user_searchForm" class="control-label">Nhân viên</label>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="input-icon right ">
+                                    <input k-options="vm.userOptions"
+                                           class="form-control width100 " type="text" kendo-auto-complete
+                                           id="user_searchForm" name="user_searchForm"
+                                           ng-model="vm.searchForm.username"
+                                    />
+                                </div>
+                            </div>
+                            <div class=" One_icon">
+                                <i class="fa fa-times" aria-hidden="true" ng-click="vm.clear('userList')"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  -->
+                </div>
+            </div>
+
+            <div class="clearfix">
+                <div class="row ">
+                    <!--  -->
+                    <div class="form-group col-md-6">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label for="dai_area_searchForm" class="control-label">Khu vực</label>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="input-icon right ">
+                                    <input k-options="vm.areaOptions"
+                                           class="form-control width100 " type="text" kendo-auto-complete
+                                           id="dai_area_searchForm" name="dai_area_searchForm"
+                                           ng-model="vm.searchForm.areaName"
+                                    />
+                                </div>
+                            </div>
+                            <div class=" One_icon">
+                                <i class="fa fa-times" aria-hidden="true" ng-click="vm.clear('areaList')"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  -->
+                    <!--  -->
+                    <div class="form-group col-md-6">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label for="dai_indicator_searchForm" class="control-label">Chỉ tiêu</label>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="input-icon right ">
+                                    <input k-options="vm.indicatorOptions"
+                                           class="form-control width100 " type="text" kendo-auto-complete
+                                           id="dai_indicator_searchForm" name="dai_indicator_searchForm"
+                                           ng-model="vm.searchForm.indicatorName"
+                                    />
+                                </div>
+                            </div>
+                            <div class=" One_icon">
+                                <i class="fa fa-times" aria-hidden="true" ng-click="vm.clear('indicator')"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Navbar-->
+    <nav class=" navbar-expand-lg navbar-dark indigo mb-4">
+        <form class="clearfix text-center">
+            <button class="btn btn-outline-dark btn-md my-0 ml-sm-2" type="submit" ng-click="vm.doSearch()">Search
+            </button>
+        </form>
+    </nav>
+    <div id="gridList" kendo-grid="vm.dataIndicatorGrid" k-editable="false"
+         k-options="vm.dataIndicatorGridOptions"></div>
+    <br/>
+    <br/>
+</div>
+

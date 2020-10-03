@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BaoCaoTongHopTheoChiTieu" pageWidth="2042" pageHeight="842" orientation="Landscape" columnWidth="2002" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="045c91f4-0854-4268-96f6-d23c0bab0a4f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<parameter name="areaId" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="indicatorId" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="userId" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dateFrom" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dateTo" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+  u.username createdBy,
+  DATE(daindi.date) createdDate,
+  (select u.username from baitoanso1.user u Where u.user_id = daindi.updated_by) updatedBy,
+  DATE(daindi.updated) updatedDate,
+  daindi.content content,
+  (Select code from baitoanso1.area a Where a.area_id = daindi.area_id) areaCode,
+  (select code from baitoanso1.indicator Where indicator_id = daindi.indicator_id) indicatorCode,
+  daindi.value
+FROM
+  baitoanso1.data_indicator daindi
+INNER JOIN baitoanso1.indicator indi
+on  indi.indicator_id = daindi.indicator_id
+LEFT JOIN baitoanso1.user u
+ON
+  u.user_id = daindi.user_id
+Where 1 =1
+and ($P{areaId} is null or ($P{areaId} is not null and daindi.area_id = $P{areaId} ))
+and ($P{indicatorId} is null or ($P{indicatorId} is not null and daindi.indicator_id = $P{indicatorId} ))
+and ($P{userId} is null or ($P{userId} is not null and daindi.user_id = $P{userId} ))
+and ($P{dateFrom} is null or ($P{dateFrom} is not null and DATE(daindi.date) >= DATE($P{dateFrom}) ))
+and ($P{dateTo} is null or ($P{dateTo} is not null and DATE(daindi.date) < DATE($P{dateTo}) +1 ))]]>
+	</queryString>
+	<field name="createdBy" class="java.lang.String"/>
+	<field name="createdDate" class="java.sql.Date"/>
+	<field name="updatedBy" class="java.lang.String"/>
+	<field name="updatedDate" class="java.sql.Date"/>
+	<field name="content" class="java.lang.String"/>
+	<field name="areaCode" class="java.lang.String"/>
+	<field name="indicatorCode" class="java.lang.String"/>
+	<field name="value" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement uuid="a69c536e-3f2a-4b28-9c1a-7e1f9a778d2e" x="0" y="0" width="2002" height="30"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="12" isBold="true" pdfFontName="TIMESDB.TTF" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["BÁO CÁO THỐNG KÊ CHỈ TIÊU"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<summary>
+		<band height="162" splitType="Stretch">
+			<crosstab>
+				<reportElement uuid="5ebb84c0-d694-4dca-892b-6c623d967122" x="0" y="0" width="2000" height="162"/>
+				<crosstabDataset isDataPreSorted="true"/>
+				<crosstabHeaderCell>
+					<cellContents backcolor="#F0F8FF" mode="Opaque">
+						<textField isStretchWithOverflow="true">
+							<reportElement uuid="f4034e45-1cde-488b-af31-244f950140b8" style="Crosstab Data Text" x="0" y="0" width="70" height="30"/>
+							<box>
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textElement verticalAlignment="Middle">
+								<font fontName="DejaVu Sans" isBold="true" pdfFontName="TIMESDB.TTF" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA["User nhập"]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement uuid="d0aea5fb-ebc4-43c5-be03-513491171cfc" style="Crosstab Data Text" x="70" y="0" width="101" height="30"/>
+							<box>
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textElement verticalAlignment="Middle">
+								<font fontName="DejaVu Sans" isBold="true" pdfFontName="TIMESDB.TTF" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA["Ngày nhập"]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement uuid="9d00ddfb-ec59-48b5-8cd4-a7b8870e0a60" style="Crosstab Data Text" x="171" y="0" width="162" height="30"/>
+							<box>
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textElement verticalAlignment="Middle">
+								<font fontName="DejaVu Sans" isBold="true" pdfFontName="TIMESDB.TTF" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA["User sửa"]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement uuid="989424b2-d0f5-48f8-83cd-1c6df62ed679" style="Crosstab Data Text" x="333" y="0" width="116" height="30"/>
+							<box>
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textElement verticalAlignment="Middle">
+								<font fontName="DejaVu Sans" isBold="true" pdfFontName="TIMESDB.TTF" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA["Ngày sửa"]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement uuid="545612b5-2583-434f-9683-2caabb3bb2ff" style="Crosstab Data Text" x="449" y="0" width="212" height="30"/>
+							<box>
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textElement verticalAlignment="Middle">
+								<font fontName="DejaVu Sans" isBold="true" pdfFontName="TIMESDB.TTF" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA["Nội dung"]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement uuid="545612b5-2583-434f-9683-2caabb3bb2ff" style="Crosstab Data Text" x="661" y="0" width="167" height="30"/>
+							<box>
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textElement verticalAlignment="Middle">
+								<font fontName="DejaVu Sans" isBold="true" pdfFontName="TIMESDB.TTF" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA["Địa điểm"]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabHeaderCell>
+				<rowGroup name="CREATEDBY" width="70" totalPosition="End">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{createdBy}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents backcolor="#F0F8FF" mode="Transparent">
+							<textField isBlankWhenNull="true">
+								<reportElement uuid="8c739efb-735c-4267-9f6e-c61552aa22b4" style="Crosstab Data Text" stretchType="RelativeToBandHeight" x="0" y="0" width="70" height="25"/>
+								<box leftPadding="3" rightPadding="2">
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" pdfFontName="TIMES.TTF" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{CREATEDBY}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents backcolor="#005FB3" mode="Opaque"/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<rowGroup name="CREATEDDATE" width="101" totalPosition="End">
+					<bucket class="java.util.Date">
+						<bucketExpression><![CDATA[$F{createdDate}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents backcolor="#F0F8FF" mode="Transparent">
+							<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+								<reportElement uuid="01fab6cd-9435-4ebe-bd9d-2bea07837e63" style="Crosstab Data Text" stretchType="RelativeToBandHeight" x="0" y="0" width="101" height="25"/>
+								<box leftPadding="3" rightPadding="2">
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" pdfFontName="TIMES.TTF" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{CREATEDDATE}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents backcolor="#BFE1FF" mode="Opaque"/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<rowGroup name="UPDATEDBY" width="162">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{updatedBy}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents>
+							<textField isBlankWhenNull="true">
+								<reportElement uuid="0a72e1e7-398a-438c-932e-0cd25475038a" style="Crosstab Data Text" x="0" y="0" width="162" height="25"/>
+								<box leftPadding="3" rightPadding="2">
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$V{UPDATEDBY}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<rowGroup name="UPDATEDDATE" width="116">
+					<bucket class="java.util.Date">
+						<bucketExpression><![CDATA[$F{updatedDate}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents>
+							<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+								<reportElement uuid="033e7a79-7469-46e2-b188-397e931be897" style="Crosstab Data Text" x="0" y="0" width="116" height="25"/>
+								<box leftPadding="3" rightPadding="2">
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$V{UPDATEDDATE}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<rowGroup name="CONTENT" width="212">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{content}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents>
+							<textField isStretchWithOverflow="true" pattern="#,##0" isBlankWhenNull="true">
+								<reportElement uuid="7fac6cc8-3af2-447e-b12a-a0f7da55c307" style="Crosstab Data Text" stretchType="RelativeToBandHeight" x="0" y="0" width="212" height="25"/>
+								<box leftPadding="3" rightPadding="2">
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" pdfFontName="TIMES.TTF" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{CONTENT}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<rowGroup name="AREA_CODE" width="167">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{areaCode}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents>
+							<textField isBlankWhenNull="true">
+								<reportElement uuid="a636203f-e833-47db-9660-d979be98fe0a" style="Crosstab Data Text" x="0" y="0" width="167" height="25"/>
+								<box leftPadding="3" rightPadding="2">
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$V{AREA_CODE}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<columnGroup name="INDICATORCODE" height="30" totalPosition="End">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{indicatorCode}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents backcolor="#F0F8FF" mode="Opaque">
+							<textField>
+								<reportElement uuid="365b830c-34f7-4642-be54-005a2c549f4f" style="Crosstab Data Text" x="0" y="0" width="146" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" isBold="true" pdfFontName="TIMESDB.TTF" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{INDICATORCODE}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents backcolor="#BFE1FF" mode="Opaque"/>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<measure name="TOTAL_VALUEMEASURE" class="java.lang.String" calculation="Sum">
+					<measureExpression><![CDATA[$F{value}]]></measureExpression>
+				</measure>
+				<crosstabCell width="146" height="25">
+					<cellContents>
+						<textField isBlankWhenNull="true">
+							<reportElement uuid="733aad99-7807-4bd7-9f42-08657bb0c7bf" style="Crosstab Data Text" x="0" y="0" width="146" height="25"/>
+							<box leftPadding="3" rightPadding="2">
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textElement verticalAlignment="Middle"/>
+							<textFieldExpression><![CDATA[$V{TOTAL_VALUEMEASURE}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="146" height="0" rowTotalGroup="CREATEDBY">
+					<cellContents backcolor="#005FB3" mode="Opaque"/>
+				</crosstabCell>
+				<crosstabCell width="0" columnTotalGroup="INDICATORCODE">
+					<cellContents backcolor="#BFE1FF" mode="Opaque"/>
+				</crosstabCell>
+				<crosstabCell width="0" height="0" rowTotalGroup="CREATEDBY" columnTotalGroup="INDICATORCODE">
+					<cellContents backcolor="#005FB3" mode="Opaque"/>
+				</crosstabCell>
+				<crosstabCell width="146" height="0" rowTotalGroup="CREATEDDATE">
+					<cellContents backcolor="#BFE1FF" mode="Opaque"/>
+				</crosstabCell>
+				<crosstabCell width="0" height="0" rowTotalGroup="CREATEDDATE" columnTotalGroup="INDICATORCODE">
+					<cellContents backcolor="#BFE1FF" mode="Opaque"/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="UPDATEDBY">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="UPDATEDBY" columnTotalGroup="INDICATORCODE">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="UPDATEDDATE">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="UPDATEDDATE" columnTotalGroup="INDICATORCODE">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="CONTENT">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="CONTENT" columnTotalGroup="INDICATORCODE">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="AREA_CODE">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="AREA_CODE" columnTotalGroup="INDICATORCODE">
+					<cellContents/>
+				</crosstabCell>
+			</crosstab>
+		</band>
+	</summary>
+</jasperReport>

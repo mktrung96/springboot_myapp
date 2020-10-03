@@ -1,0 +1,45 @@
+.form-control {
+	height: 25px;
+	padding: 0 12px;
+	font-size: 12px !important;
+}
+
+.form-group {
+	margin-bottom: 5px;
+}
+
+.panel-primary {
+	border-color: #00918d;
+}
+
+.panel-primary>.panel-heading {
+	color: #fff;
+	background-color: #00918d;
+	border-color: #00918d;
+}
+
+.form-horizontal .control-label {
+	text-align: right !important;
+	margin-bottom: 0 !important;
+	padding-top: 4px !important;
+}
+
+/* .nav-tabs{
+	margin-left: -21px !important;
+} */
+.span-blue {
+	color: blue;
+}
+
+.span-doga {
+	color: #9e050f;
+}
+
+.control-label-left {
+	text-align: left !important;
+	margin-bottom: 0 !important;
+	padding-top: 4px !important;
+	font-size: 13px !important;
+	margin-top: 1px;
+	font-weight: 400;
+}

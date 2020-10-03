@@ -1,0 +1,136 @@
+<form class="" role="form" id="employee_add_popupId">
+    <div class="clearfix margin-top-30">
+        <div class="clearfix">
+            <div class="row was-validated">
+                <div class="form-group col-md-6">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="username" class="control-label">Tên đăng nhập:</label>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="input-icon right ">
+                                <input type="text" class="form-control width100" ng-model="caller.addForm.username" id="username"
+                                       required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="fullName" class="control-label">Tên đầy đủ:</label>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="input-icon right ">
+                                <input type="text" class="form-control width100" ng-model="caller.addForm.fullName"
+                                       id="fullName"
+                                       required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix">
+            <div class="row was-validated">
+                <!--  -->
+                <div class="form-group col-md-6">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="email" class="control-label">Email:</label>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="input-icon right ">
+                                <input type="email" class="form-control width100" ng-model="caller.addForm.email" id="email"
+                                       required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="phone" class="control-label">Số điện thoại :</label>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="input-icon right ">
+                                <input  class="form-control width100" ng-model="caller.addForm.phone" id="phone"
+                                        required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+            </div>
+        </div>
+        <div class="clearfix">
+            <div class="row was-validated" ng-if="caller.typeCreate == 'add'">
+                <!--  -->
+                <div class="form-group col-md-6">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="password" class="control-label">Mật khẩu:</label>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="input-icon right ">
+                                <input type="password" class="form-control width100" ng-model="caller.addForm.password"
+                                       id="password"
+                                       required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+                <!--  -->
+                <div class="form-group col-md-6">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="passwordConfirm" class="control-label">Xác nhận mật khẩu:</label>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="input-icon right ">
+                                <input type="password" class="form-control width100" ng-model="caller.addForm.passwordConfirm"
+                                       id="passwordConfirm"
+                                       required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+            </div>
+        </div>
+        <!--  -->
+        <!--  -->
+        <div class="clearfix">
+            <div class="row was-validated">
+                <div class="form-group col-md-6">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label form="status">Quyền quản trị:</label>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="input-icon right ">
+                                <select class="browser-default custom-select width100" ng-model="caller.addForm.isAdmin" required>
+                                    <option value="">--Lựa chọn quyền --</option>
+                                    <option selected ng-model="xss" ng-selected="u.selected" ng-repeat="u in caller.permissionArray"
+                                            value="{{u.idAdmin}}">
+                                        {{u.nameAdmin}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+    </div>
+    <div style="margin-top: 15px">
+        <div class="clearfix text-center">
+            <button class="btn btn-success" ng-click="caller.saveItem()">Ghi lại</button>
+            <button class="btn btn-outline-warning " ng-click="caller.cancel()">Hủy bỏ</button>
+        </div>
+    </div>
+</form>
+
+

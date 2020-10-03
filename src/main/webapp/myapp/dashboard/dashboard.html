@@ -1,0 +1,141 @@
+<!-- BEGIN PAGE HEADER-->
+<script type="text/x-kendo-template" id="windowConfirmTemplate">
+    <div class="modal-body">
+		<label class="control-label" traslate>#= message #</label>   		
+	</div>
+	<div class="modal-footer">
+		<button id="confirmPopup_btnCancel" type="button" class="btn green btn-outline padding-search" translate>Bá»� qua</button>
+		<button id="confirmPopup_btnConfirm" type="button" class="btn green border-button-tree padding-search-right" translate>XÃ¡c nháº­n</button>
+	</div>
+</script>
+
+<script type="text/x-kendo-template" id="windowPromptTemplate">
+    <div class="modal-body">
+   		<label class="control-label" traslate>#= message #</label>
+		<div class="col-md-12">
+			<textarea class="form-control" id="promptPopup_txtReason" name="promptPopup_txtReason" maxlength = "2000" rows="5"></textarea>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button id="promptPopup_btnCancel" type="button" class="btn green btn-outline padding-search" translate>Bá»� qua</button>
+		<button id="promptPopup_btnConfirm" type="button" class="btn green border-button-tree padding-search-right" translate>XÃ¡c nháº­n</button>
+	</div>
+</script>
+	
+<!-- END PAGE HEADER-->
+<!-- BEGIN MAIN CONTENT -->
+<div ng-controller="DashboardController">
+	<!-- BEGIN DASHBOARD STATS -->
+	<div class="row">
+		<div class="col-md-7" >
+			<div class="col-md-12 background-header-deal">
+				<div class="col-md-6 text-left header-chart-line">
+						<img src="assets/layouts/layout/img/input/char.png"/>
+						Giao dich suất nhập kho
+				</div>
+				<div class="col-md-6 text-right button-header">
+					<a>Tuần</a>
+					<a>Tháng</a>
+					<a>Qúi</a>
+				</div>
+			</div>
+			<div class="col-md-12 border-dash"><canvas id="myChart" style="height:305px"></canvas></div>
+		</div>
+		<div class="col-md-5">
+			<div class="col-md-12 background-header-f1b989 ">
+				<div class="text-left header-chart-TwoColumn"><i class="fa fa-refresh" aria-hidden="true"></i>Yêu cầu mới</div>
+			</div>
+			<div class="col-md-12 border-dash"><canvas id="bar-chart-grouped" style="height:305px"></canvas></div>
+		</div>
+	</div>
+	<div class="row margin_top30">
+		<div class="col-md-7">
+			<div class="col-md-12 background-header-dde4c8">
+					<div class="text-left header-chart-Circle"><i class="fa fa-repeat" aria-hidden="true"></i>Phiếu nhập/xuất chưa hoàn thành</div>
+			</div>
+			<div class="col-md-5 ">
+				<div class="col-md-12 text-center">
+					<h3>Nhập</h3>
+				</div>
+				<div class="col-md-6" id="graph">
+					<div class="row text-chart">
+						<canvas id="chartCircle" width="100" height="100"></canvas>
+						<span>68</span>
+					</div>
+				  	<div class="row text-legend">
+						<p>Chưa ký CA</p>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="row text-chart">
+						<canvas id="chartCircleTwo" width="100" height="100"></canvas>
+						<span>98</span>
+					</div>
+					<div class="row text-legend">
+						<p>Chưa thực nhập</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-7 ">
+				<div class="col-md-12 text-center">
+					<h3>Xuất</h3>
+				</div>
+				<div class="col-md-4">
+					<div class="row text-chart">
+						<canvas id="chartCircleThree" width="100" height="100"></canvas>
+						<span>68</span>
+					</div>
+				  	<div class="row text-legend">
+						<p>Chưa ký CA</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="row text-chart">
+						<canvas id="chartCircleFour" width="100" height="100"></canvas>
+						<span>68</span>
+					</div>
+				  	<div class="row text-legend">
+						<p>Chưa ký CA</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="row text-chart">
+						<canvas id="chartCircleFive" width="100" height="100"></canvas>
+						<span>68</span>
+					</div>
+				  	<div class="row text-legend">
+						<p>Đang di đường</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="col-md-5">
+			<div class="col-md-12 background-header-55c8ff">
+				<div class="col-md-6 text-left header-chart-column">
+						<img src="assets/layouts/layout/img/input/bangke.png"/>
+						Kpi tồn kho
+				</div>
+				<div class="col-md-6 text-right button-header">
+					<a>Số lượng</a>
+					<a>Thời gian</a>
+				</div>
+			</div>
+			<div class="col-md-12 border-dash"><canvas id="bar-chart-kpi" style="height:305px"></canvas></div>
+		</div>
+	</div>
+
+	<div class="row footer">
+		<div class="footer-detail text-center"> Pháº§n má»�m xÃ¢y dá»±ng bá»Ÿi TT Pháº§n má»�m Viettel 1 </div>
+	</div>
+
+
+	<div class="scroll-to-top">
+	    <i class="icon-arrow-up"></i>
+	</div>
+	<!-- END PORTLET-->
+</div>
+
+<!-- END MAIN CONTENT -->
+<!-- BEGIN MAIN JS & CSS -->
+<!-- BEGIN MAIN JS & CSS -->

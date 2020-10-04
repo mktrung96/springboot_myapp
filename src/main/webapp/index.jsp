@@ -158,6 +158,20 @@
 <%--<script src="${pageContext.request.contextPath}/assets/global/plugins/angularjs/plugins/angular-ui-router.min.js" type="text/javascript"></script>--%>
 <script src="${pageContext.request.contextPath}/resources/js/angular-ui-tab-scroll.js"></script>
 
+
+<script src="${contextPath}/myapp/app-services/authentication.service.js"></script>
+<script src="${contextPath}/myapp/app-services/flash.service.js"></script>
+
+<!-- Real user service that uses an api -->
+ <script src="${contextPath}/myapp/app-services/user.service.js"></script>
+
+<!-- Fake user service for demo that uses local storage -->
+<script src="${contextPath}/myapp/app-services/user.service.local-storage.js"></script>
+
+<script src="${contextPath}/myapp/home/home.controller.js"></script>
+<script src="${contextPath}/myapp/login/index.controller.js"></script>
+<script src="${contextPath}/myapp/register/register.controller.js"></script>
+
 <%--<script src="${pageContext.request.contextPath}/assets/global/plugins/angularjs/angular.min.js" type="text/javascript"></script>--%>
 <%--<script src="${pageContext.request.contextPath}/assets/global/plugins/angularjs/angular-sanitize.min.js" type="text/javascript"></script>--%>
 <%--<script src="${pageContext.request.contextPath}/assets/global/plugins/angularjs/angular-touch.min.js" type="text/javascript"></script>--%>
